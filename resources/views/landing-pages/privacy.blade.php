@@ -8,30 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            @apply bg-gray-50 text-gray-800;
-        }
-        .section-padding {
-            /* Consistent horizontal padding for better spacing */
-            @apply py-16 px-6 sm:px-10 lg:px-16;
-        }
-        .container {
-            /* Consistent max-width for content to feel more balanced on large screens */
-            @apply max-w-screen-2xl mx-auto;
-            max-width: 1140px !important;
-            margin: 0 auto;
-        }
-        .cta-button-primary {
-            @apply inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10 transition duration-300 ease-in-out shadow-lg;
-        }
-        /* Sticky Nav Highlight */
-        .nav-link.active {
-            @apply text-indigo-600 font-semibold;
-            color: #4f46e5;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('assets/custom_styles/style.css') }}">
 </head>
 <body>
 

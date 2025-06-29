@@ -8,76 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/custom_styles/style.css') }}">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            @apply bg-gray-50 text-gray-800;
-        }
-        .section-padding {
-            @apply py-16 px-4 sm:px-6 lg:px-8;
-        }
-        .container {
-            @apply max-w-7xl mx-auto;
-            max-width: 1140px !important;
-            margin: 0 auto;
-        }
-        .cta-button-primary {
-            @apply inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10 transition duration-300 ease-in-out shadow-lg;
-        }
-        .cta-button-secondary {
-            @apply inline-flex items-center justify-center px-8 py-3 border border-indigo-600 text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-indigo-50 md:py-4 md:text-lg md:px-10 transition duration-300 ease-in-out shadow-lg;
-        }
-        /* Sticky Nav Highlight - Will be handled by JS on multi-page */
-        .nav-link.active {
-            @apply text-indigo-600 font-semibold;
-            color: #4f46e5;
-        }
-
-        /* Specific styles for the hero section background image and overlay */
         #home-hero {
-            background-image: url('https://placehold.co/1920x1080/6366F1/FFFFFF/png?text=PharmaPulse+Hero+Image'); /* Placeholder Image URL - Replace with your actual image */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative; /* Needed for overlay positioning */
-            color: white; /* Ensure text is visible against dark overlay */
-            min-height: 100vh; /* Make it full screen height */
-            display: flex;
-            align-items: center; /* Center content vertically */
-            justify-content: center; /* Center content horizontally */
-        }
-        #home-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
-            z-index: 1; /* Place overlay above background image but below content */
-        }
-        #home-hero .container {
-            position: relative;
-            z-index: 2; /* Place content above the overlay */
-            color: white; /* Ensure text is white over the dark overlay */
-        }
-        #home-hero .cta-button-primary {
-            background-color: #4F46E5; /* Keep primary button color consistent */
-            border-color: transparent;
-        }
-        #home-hero .cta-button-secondary {
-            background-color: rgba(255, 255, 255, 0.2); /* Make secondary button transparent white */
-            border-color: white;
-            color: white;
-        }
-        #home-hero .cta-button-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-        #home-hero h1, #home-hero p {
-            color: white; /* Ensure all text in hero is white */
-        }
-        #home-hero h1 .text-indigo-600 {
-            color: #C7D2FE; /* Lighter indigo for accent text on dark background */
+            background-image: url('{{ asset('assets/custom_images/hero-pharmapulse.png') }}');
         }
     </style>
 </head>
@@ -87,20 +21,21 @@
 
     <main>
         <!-- 1. Home / Landing Page Section -->
-        <section id="home-hero" class="text-center">
-            <div class="container space-y-8 py-24 sm:py-32 lg:py-48">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
-                    PharmaPulse — <span class="text-indigo-600">Smarter</span> Pharma Revenue Management
-                </h1>
-                <p class="text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto">
-                    Optimize billing, analytics, and payments—all in one cloud-based platform tailored for pharmacies, clinics, labs, and hospitals.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 pt-4">
-                    <a href="#" class="cta-button-primary">
-                        Get Started &rarr;
-                        <span class="ml-2 text-sm">(Login / Contact Admin)</span>
-                    </a>
-                    <a href="services.html" class="cta-button-secondary">Discover Features</a>
+        <section id="home-hero" class="text-left flex items-center min-h-screen relative">
+            <div class="absolute inset-0 opacity-50 z-0"></div>
+            <div class="container z-10 relative">
+                <div class="max-w-2xl">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-8">
+                        Smarter <span class="text-indigo-300">Pharma Revenue Management</span>
+                    </h1>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                        <a href="#" class="cta-button-primary">
+                            Get Started &rarr;
+                        </a>
+                        <a href="services.html" class="cta-button-secondary">
+                            Discover Features
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

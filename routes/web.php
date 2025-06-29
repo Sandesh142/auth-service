@@ -14,35 +14,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('landing-pages.home');
 });
 
 Route::get('/about-us', function () {
-    return view('about-us');
+    return view('landing-pages.about-us');
 });
 
 Route::get('/services', function () {
-    return view('services');
+    return view('landing-pages.services');
 });
 
 Route::get('/contact-us', function () {
-    return view('contact-us');
+    return view('landing-pages.contact-us');
 });
 
 Route::get('/faqs', function () {
-    return view('faqs');
+    return view('landing-pages.faqs');
 });
 
 Route::get('/privacy', function () {
-    return view('privacy');
+    return view('landing-pages.privacy');
 });
 
 Route::get('/terms', function () {
-    return view('terms-condition');
+    return view('landing-pages.terms-condition');
 });
 
 Route::get('/404-error', function () {
-    return view('error-404');
+    return view('landing-pages.error-404');
 });
 
 Route::get('/login', function () {

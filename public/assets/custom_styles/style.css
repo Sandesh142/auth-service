@@ -1,0 +1,101 @@
+body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-gray-50 text-gray-800;
+}
+.section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+}
+.container {
+    @apply max-w-7xl mx-auto;
+    max-width: 1140px !important;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+.cta-button-primary {
+    @apply inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300 shadow-lg;
+}
+
+.cta-button-secondary {
+    @apply inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-indigo-700 bg-white border border-indigo-600 hover:bg-indigo-100 transition duration-300 shadow-lg;
+}
+/* Sticky Nav Highlight - Will be handled by JS on multi-page */
+.nav-link.active {
+    @apply text-indigo-600 font-semibold;
+    color: #4f46e5;
+}
+
+/* Style for the plus/minus icon transition */
+.accordion-header svg {
+    transition: transform 0.3s ease;
+}
+.accordion-header.active svg {
+    transform: rotate(45deg); /* Rotates plus to become an X/minus */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#home-hero {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative; 
+    color: white; 
+    min-height: 100vh; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+#home-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
+}
+#home-hero .container {
+    position: relative;
+    z-index: 2; 
+    color: white; 
+}
+#home-hero .cta-button-primary {
+    background-color: #4F46E5; 
+    border-color: transparent;
+}
+#home-hero .cta-button-secondary {
+    background-color: rgba(255, 255, 255, 0.2); 
+    border-color: white;
+    color: white;
+}
+#home-hero .cta-button-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+#home-hero h1, #home-hero p {
+    color: white; 
+}
+#home-hero h1 .text-indigo-600 {
+    color: #C7D2FE; 
+}
