@@ -21,6 +21,15 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
+                // If authenticated with 'web' guard, redirect to 'admin.dashboard'
+                if ($guard === 'web') {
+                    return redirect()->route('admin.dashboard');
+                }
+                // If authenticated with 'superadmin' guard, redirect to 'superadmin.dashboard'
+                if ($guard === 'superadmin') {
+                    return redirect()->route('superadmin.dashboard');
+                }
+                // Default fallback for any other authenticated guard
                 return redirect(RouteServiceProvider::HOME);
             }
         }

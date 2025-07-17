@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    @include('layout.header')
+    @include('layouts.header')
 
     <main>
         <!-- Contact Us Section -->
@@ -77,7 +77,7 @@
         </section>
     </main>
 
-    @include('layout.footer')
+    @include('layouts.footer')
 
     <script>
         // Mobile menu toggle

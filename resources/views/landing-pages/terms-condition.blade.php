@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    @include('layout.header')
+    @include('layouts.header')
 
     <main>
         <!-- Terms of Service Section -->
@@ -78,7 +78,7 @@
         </section>
     </main>
 
-    @include('layout.footer')
+    @include('layouts.footer')
 
     <script>
         // Mobile menu toggle

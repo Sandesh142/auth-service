@@ -34,10 +34,14 @@ class SuperAdminLoginController extends Controller
 
             Log::info('SuperAdmin login successful', ['id' => $superadmin->id, 'email' => $superadmin->email]);
 
-            return response()->json([
-                'user' => $superadmin,
-                'token' => $token,
-            ]);
+            // return response()->json([
+            //     'user' => $superadmin,
+            //     'token' => $token,
+            // ]);
+
+            return response()
+                ->json(['user' => $superadmin])
+                ->cookie('superadmin_token', $token, 60 * 24, '/', null, true, true, false, 'Strict');
 
         } catch (ValidationException $e) {
             Log::error('Validation error during SuperAdmin login', ['errors' => $e->errors()]);
@@ -56,7 +60,10 @@ class SuperAdminLoginController extends Controller
     public function logout(Request $request)
     {
         Auth::guard('superadmin')->logout();
-        return response()->json(['message' => 'Logged out']);
+        // return response()->json(['message' => 'Logged out']);
+        return response()
+            ->json(['message' => 'Logged out'])
+            ->cookie('superadmin_token', '', -1); 
     }
 
     public function me()
