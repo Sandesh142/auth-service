@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
+// Remove: use Illuminate\Auth\Notifications\ResetPassword;
+// Remove: use Illuminate\Support\Facades\Password;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -21,10 +23,16 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // $this->registerPolicies();
+        $this->registerPolicies();
 
-        // ResetPassword::createUrlUsing(function ($user, string $token) {
-        //     return 'http://your-frontend-app.com/reset-password?token=' . $token . '&email=' . urlencode($user->email);
-        // });
+        // REMOVE THE Password::createUrlUsing() BLOCK FROM HERE
+        /*
+        Password::createUrlUsing(function (object $notifiable, string $token) {
+            return route('admin.password.reset', [
+                'token' => $token,
+                'email' => $notifiable->getEmailForPasswordReset(),
+            ]);
+        });
+        */
     }
 }

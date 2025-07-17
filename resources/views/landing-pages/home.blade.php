@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    @include('layout.header')
+    @include('layouts.header')
 
     <main>
         <!-- 1. Home / Landing Page Section -->
@@ -159,7 +159,7 @@
 
     </main>
 
-    @include('layout.footer')
+    @include('layouts.footer')
     
     <script>
         // Mobile menu toggle

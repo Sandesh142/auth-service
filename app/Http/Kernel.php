@@ -43,6 +43,13 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
+        // --- NEW CUSTOM MIDDLEWARE GROUP ---
+        'auth.shared' => [ // Define a new group named 'auth.shared'
+            'auth:web',      // It contains 'auth:web'
+            'auth:superadmin', // And 'auth:superadmin'
+        ],
+        // --- END NEW CUSTOM MIDDLEWARE GROUP ---
     ];
 
     /**
@@ -65,4 +72,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
+    protected $routeMiddleware = [
+        'auth.any' => \App\Http\Middleware\AuthAnyGuard::class,
+    ];
+    
 }

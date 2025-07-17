@@ -44,10 +44,7 @@ return [
             'driver' => 'session',
             'provider' => 'superadmins',
         ],
-        'superadmin_api' => [
-            'driver' => 'sanctum', 
-            'provider' => 'superadmin_api',
-        ],
+
     ],
 
     /*
@@ -109,6 +106,7 @@ return [
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
+            'email' => 'App\Notifications\AdminResetPasswordNotification',
         ],
 
         'superadmins' => [
@@ -116,6 +114,7 @@ return [
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
+            'email' => 'App\Notifications\SuperAdminResetPassword',
         ],
 
     ],
