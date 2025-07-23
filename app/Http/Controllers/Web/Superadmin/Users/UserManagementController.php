@@ -178,9 +178,10 @@ class UserManagementController extends Controller
 
         $clinicRoles = collect();
         if ($superAdminUser) {
-            $clinicRoles = Role::whereNotNull('client_id')->get(); // SuperAdmin can assign any clinic role
+            // $clinicRoles = Role::whereNotNull('client_id')->get();
+            $clinicRoles = Role::all();
         } elseif ($webUser && $webUser->client_id) {
-            $clinicRoles = Role::where('client_id', $webUser->client_id)->get(); // Admin can only assign their clinic's roles
+            $clinicRoles = Role::where('client_id', $webUser->client_id)->get(); 
         }
 
         return view($this->getViewPrefix() . 'create', compact('clients', 'clinicRoles'));
