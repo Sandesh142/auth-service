@@ -119,7 +119,7 @@ class RolePermissionController extends Controller
      */
     public function storeRole(Request $request)
     {
-        $user = Auth::user();
+        $user = Auth::guard('web')->user();
         $superAdminUser = Auth::guard('superadmin')->user();
 
         if (!$superAdminUser && !$user->hasPermission('create_roles')) {

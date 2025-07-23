@@ -92,29 +92,6 @@ Route::prefix('superadmin')->middleware('auth:superadmin')->group(function () {
     });
 });
 
-// Route::prefix('superadmin')->middleware('auth:superadmin')->group(function () {
-//     Route::prefix('revenue')->group(function () {
-//         Route::get('/', [RevenueManagementController::class, 'index'])->name('revenue.index');
-//         Route::get('/create', [RevenueManagementController::class, 'create'])->name('revenue.create');
-//         Route::post('/', [RevenueManagementController::class, 'store'])->name('revenue.store');
-//         Route::get('/{revenueEntry}', [RevenueManagementController::class, 'show'])->name('revenue.show');
-//         Route::get('/{revenueEntry}/edit', [RevenueManagementController::class, 'edit'])->name('revenue.edit');
-//         Route::put('/{revenueEntry}', [RevenueManagementController::class, 'update'])->name('revenue.update');
-//         Route::delete('/{revenueEntry}', [RevenueManagementController::class, 'destroy'])->name('revenue.destroy');
-//         Route::get('/summary', [RevenueManagementController::class, 'getRevenueSummary'])->name('revenue.summary');
-//     });
-
-//     Route::prefix('roles')->group(function () {
-//         Route::get('/', [RolePermissionController::class, 'indexRoles'])->name('roles.index');
-//         Route::get('/{role}', [RolePermissionController::class, 'showRole'])->name('roles.show');
-//         Route::get('/create', [RolePermissionController::class, 'createRole'])->name('roles.create');
-//         Route::post('/', [RolePermissionController::class, 'storeRole'])->name('roles.store');
-//         Route::get('/{role}/edit', [RolePermissionController::class, 'editRole'])->name('roles.edit');
-//         Route::put('/{role}', [RolePermissionController::class, 'updateRole'])->name('roles.update');
-//         Route::delete('/{role}', [RolePermissionController::class, 'destroyRole'])->name('roles.destroy');
-//     });
-// });
-
 Route::prefix('superadmin')->middleware('auth:superadmin')->group(function () {
     // Dashboard and Permissions are already here
 
@@ -175,8 +152,8 @@ Route::prefix('superadmin')->middleware('auth:superadmin')->group(function () {
     // Role & Permission Management Routes (System-wide and Clinic-level roles)
     Route::prefix('roles')->group(function () {
         Route::get('/', [SuperadminRolePermissionController::class, 'indexRoles'])->name('superadmin.roles.index');
-        Route::get('/{role}', [SuperadminRolePermissionController::class, 'showRole'])->name('superadmin.roles.show');
         Route::get('/create', [SuperadminRolePermissionController::class, 'createRole'])->name('superadmin.roles.create');
+        Route::get('/{role}', [SuperadminRolePermissionController::class, 'showRole'])->name('superadmin.roles.show');
         Route::post('/', [SuperadminRolePermissionController::class, 'storeRole'])->name('superadmin.roles.store');
         Route::get('/{role}/edit', [SuperadminRolePermissionController::class, 'editRole'])->name('superadmin.roles.edit');
         Route::put('/{role}', [SuperadminRolePermissionController::class, 'updateRole'])->name('superadmin.roles.update');
@@ -276,8 +253,8 @@ Route::middleware('auth:web')->group(function () {
     // Role & Permission Management Routes
     Route::prefix('roles')->group(function () {
         Route::get('/', [RolePermissionController::class, 'indexRoles'])->name('roles.index');
-        Route::get('/{role}', [RolePermissionController::class, 'showRole'])->name('roles.show');
         Route::get('/create', [RolePermissionController::class, 'createRole'])->name('roles.create');
+        Route::get('/{role}', [RolePermissionController::class, 'showRole'])->name('roles.show');
         Route::post('/', [RolePermissionController::class, 'storeRole'])->name('roles.store');
         Route::get('/{role}/edit', [RolePermissionController::class, 'editRole'])->name('roles.edit');
         Route::put('/{role}', [RolePermissionController::class, 'updateRole'])->name('roles.update');
